@@ -58,6 +58,7 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
 
         adapter = new SP_RecyclerViewAdapter(this,pizzaModelList);
         recyclerViewSpecialtyPizzas.setAdapter(adapter);
+        setupListeners();
 
     }
     private String[] getEnumNames() {
