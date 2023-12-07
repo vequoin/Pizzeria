@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Pizzeria</string>
+    <string name="header_logo">RU Pizza</string>
+    <string name="ru_pizza">RU Pizza</string>
+    <string name="group25">Group25</string>
+    <string name="ru_pizzaa">RU PIZZA</string>
+    <string name="speciality_pizza">Speciality Pizza</string>
+    <string name="build_your_own">Build Your Own</string>
+    <string name="current_orders">Current Orders</string>
+    <string name="store_orders">Store Orders</string>
+    <string name="group_25">Group 25</string>
+    <string name="toppings">Toppings: …</string>
+    <string name="toppingss">Toppings:</string>
+    <string name="price">Price:</string>
+    <string name="pizza_name">Pizza Name:</string>
+    <string name="menu">menu</string>
+    <string name="extra_cheese">Extra Cheese</string>
+    <string name="extra_sauce">Extra Sauce</string>
+    <string name="confirm_order">Confirm Order</string>
+
+    <string-array name="all_speciality_pizza">
+        <item>Deluxe</item>
+        <item>Meatzza</item>
+        <item>Pepperoni</item>
+        <item>Seafood</item>
+        <item>Supreme</item>
+        <item>Hawaiian</item>
+        <item>Margherita</item>
+        <item>MeatLovers</item>
+        <item>Veggie</item>
+        <item>Whiskey</item>
+    </string-array>
+</resources>

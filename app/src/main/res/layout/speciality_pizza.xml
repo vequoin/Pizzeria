@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:padding="16dp">
+
+    <include layout="@layout/header_all"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".21"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".11"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".75"/>
+
+    <!-- Spinner for Pizza Sizes -->
+    <Spinner
+        android:id="@+id/spinnerPizzaSizes"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/guide_line_sp01"
+        app:layout_constraintTop_toBottomOf="@id/guide_line_sp02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+         />
+
+    <!-- RecyclerView for Specialty Pizzas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_line_sp03"
+        app:layout_constraintTop_toBottomOf="@+id/guide_line_sp01"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".22"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_sp06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".9"/>
+
+    <CheckBox
+        android:id="@+id/extra_cheese_checkbox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/extra_cheese"
+        app:layout_constraintTop_toBottomOf="@id/guide_line_sp03"
+        app:layout_constraintBottom_toTopOf="@id/guide_line_sp06"
+        app:layout_goneMarginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guide_line_sp05"/>
+
+    <CheckBox
+        android:id="@+id/extra_sauce_checkbox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/extra_sauce"
+        app:layout_constraintTop_toBottomOf="@id/guide_line_sp03"
+        app:layout_constraintBottom_toTopOf="@id/guide_line_sp06"
+        app:layout_goneMarginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/extra_cheese_checkbox"
+        app:layout_constraintEnd_toEndOf="@id/guide_line_sp04"/>
+
+    <Button
+        android:id="@+id/confirm_button_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/guide_line_sp03"
+        android:text="@string/confirm_order"
+        android:shadowColor="@color/accentColor"
+        android:elevation="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:backgroundTint="@color/secondaryColor"
+        app:layout_constraintBottom_toTopOf="@id/guide_line_sp06"
+        app:layout_constraintStart_toEndOf="@+id/guide_line_sp04"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

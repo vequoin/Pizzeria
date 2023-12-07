@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#EC8F5E</color> <!-- Tomato Red -->
+    <color name="accentColor">#F3B664</color> <!-- Cheese Yellow -->
+    <color name="secondaryColor">#9FBB73</color> <!-- Basil Green -->
+    <color name="backgroundColor">#FFF8E1</color> <!-- Cream -->
+    <color name="textColor">#424242</color> <!-- Charcoal Gray -->
+    <!-- Existing black and white colors, if you still need them -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

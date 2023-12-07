@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/accentColor">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".35" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="1"/>
+
+            <ImageView
+                android:id="@+id/imageViewPizza"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guide_line01"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/guide_line02"
+                android:src="@drawable/pizza_selection_placeholder" /> <!-- Replace with your pizza image placeholder -->
+
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/textViewPizzaName"
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/accentColor"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/pizza_name"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewPizza"
+                app:layout_constraintTop_toTopOf="@+id/imageViewPizza"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:fontFamily="@font/roboto_regular"
+                android:shadowColor="@color/accentColor"
+                android:id="@+id/textViewToppings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/toppingss"
+                app:layout_constraintStart_toStartOf="@+id/textViewPizzaName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPizzaName"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:fontFamily="@font/roboto_regular"
+                android:shadowColor="@color/accentColor"
+                android:id="@+id/textViewPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/price"
+                app:layout_constraintStart_toStartOf="@+id/textViewToppings"
+                app:layout_constraintTop_toBottomOf="@+id/textViewToppings"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
