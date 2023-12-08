@@ -13,8 +13,11 @@ public class BuildYourOwn extends Pizza{
         }
         switch(size){
             case SMALL: basePrice += 0.0;
+                        break;
             case MEDIUM: basePrice += 2.0;
+                        break;
             case LARGE: basePrice += 4.0;
+                        break;
             default: basePrice += 0.0;
         }
         double extraToppingCost = 0.0;

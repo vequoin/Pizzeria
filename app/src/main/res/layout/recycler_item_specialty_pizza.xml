@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="8dp">
+    android:padding="4dp">
 
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/recycler_item_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +69,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
+                android:textStyle="bold"
                 android:fontFamily="@font/roboto_regular"
                 android:shadowColor="@color/accentColor"
                 android:id="@+id/textViewToppings"
@@ -80,6 +82,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
+                android:textStyle="bold"
                 android:fontFamily="@font/roboto_regular"
                 android:shadowColor="@color/accentColor"
                 android:id="@+id/textViewPrice"
@@ -90,6 +93,37 @@
                 app:layout_constraintStart_toStartOf="@+id/textViewToppings"
                 app:layout_constraintTop_toBottomOf="@+id/textViewToppings"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_percent=".78"
+                android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_percent=".3"
+                android:orientation="horizontal"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_regular"
+                android:shadowColor="@color/accentColor"
+                android:id="@+id/textViewSauce"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/sauce_recycle"
+                app:layout_constraintStart_toStartOf="@id/gl01"
+                app:layout_constraintBottom_toTopOf="@id/gl02"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

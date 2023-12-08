@@ -25,6 +25,9 @@
         <activity android:name=".SpecialityPizzaActivity">
             <!-- If you have intent-filters, they go here -->
         </activity>
+        <activity android:name=".BuildYourOwnActivity">
+            <!-- If you have intent-filters, they go here -->
+        </activity>
     </application>
 
 </manifest>

@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener customPizzaListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCustomPizzaActivity();
+                openBuildyourOwnActivity();
             }
         };
 
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void openCustomPizzaActivity() {
-        Intent intent = new Intent(MainActivity.this, CustomPizzaActivity.class);
+    private void openBuildyourOwnActivity() {
+        Intent intent = new Intent(MainActivity.this, BuildYourOwnActivity.class);
         startActivity(intent);
     }
 

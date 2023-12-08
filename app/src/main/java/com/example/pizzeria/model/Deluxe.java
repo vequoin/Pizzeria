@@ -18,8 +18,11 @@ public class Deluxe extends Pizza{
         double price = 14.99;
         switch (size){
             case SMALL: price += 0.0;
+                        break;
             case MEDIUM: price += 2.00;
+                        break;
             case LARGE: price += 4.00;
+                        break;
         }
         if(isExtraCheese()){
             price += 1;

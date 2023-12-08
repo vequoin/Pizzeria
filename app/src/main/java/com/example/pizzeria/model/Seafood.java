@@ -21,9 +21,9 @@ public class Seafood extends Pizza{
     public double price() {
         double price = 17.99;
         switch (size){
-            case SMALL: price += 0.0;
-            case MEDIUM: price += 2.00;
-            case LARGE: price += 4.00;
+            case SMALL: price += 0.0; break;
+            case MEDIUM: price += 2.00; break;
+            case LARGE: price += 4.00; break;
         }
         if(isExtraCheese()){
             price += 1;

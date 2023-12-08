@@ -32,6 +32,7 @@
     <!-- Spinner for Pizza Sizes -->
     <Spinner
         android:id="@+id/spinnerPizzaSizes"
+        android:background="@color/white"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/guide_line_sp01"

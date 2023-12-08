@@ -17,6 +17,18 @@
     <string name="extra_cheese">Extra Cheese</string>
     <string name="extra_sauce">Extra Sauce</string>
     <string name="confirm_order">Confirm Order</string>
+    <string name="tomato_sauce">Tomato Sauce</string>
+    <string name="alfredo_sauce">Alfredo Sauce</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="all_toppings">All Toppings</string>
+    <string name="selected_toppings">Selected Toppings</string>
+    <string name="build_your_own_logo">Build Your Own</string>
+    <string name="price_bo">Price:</string>
+    <string name="zero_price">0.00</string>
+    <string name="price_in_dollars">Price: $</string>
+    <string name="pizza_size_image">pizza size image</string>
+    <string name="sauce_recycle">Sauce:</string>
 
     <string-array name="all_speciality_pizza">
         <item>Deluxe</item>

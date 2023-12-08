@@ -7,12 +7,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pizzeria.model.OrderBreaker;
 import com.example.pizzeria.model.Pizza;
 import com.example.pizzeria.model.PizzaMaker;
 import com.example.pizzeria.model.Size;
@@ -21,7 +23,7 @@ import com.example.pizzeria.model.Topping;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialityPizzaActivity extends AppCompatActivity {
+public class SpecialityPizzaActivity extends AppCompatActivity implements SP_RecyclerViewAdapter.OnPizzaSelectedListener{
 
     List<SpecialityPizzaModel> pizzaModelList;
     private RecyclerView recyclerViewSpecialtyPizzas;
@@ -32,6 +34,8 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
     private CheckBox extraCheese;
     private CheckBox extraSauce;
     private Button confirmButton;
+
+    private SpecialityPizzaModel selectedPizzaModel;
 
     private String[] getSizes;
 
@@ -56,8 +60,10 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
         pizzaModelList = new ArrayList<>();
         populatePizzaList();
 
-        adapter = new SP_RecyclerViewAdapter(this,pizzaModelList);
+        adapter = new SP_RecyclerViewAdapter(this,pizzaModelList,this);
         recyclerViewSpecialtyPizzas.setAdapter(adapter);
+
+        setupListeners();
 
     }
     private String[] getEnumNames() {
@@ -69,6 +75,10 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
         }
 
         return names;
+    }
+
+    private void onPizzaModelSelected(SpecialityPizzaModel pizzaModel) {
+        selectedPizzaModel = pizzaModel;
     }
 
     private void setupListeners() {
@@ -85,6 +95,7 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
 
         extraCheese.setOnCheckedChangeListener((buttonView, isChecked) -> updatePizzaPrices());
         extraSauce.setOnCheckedChangeListener((buttonView, isChecked) -> updatePizzaPrices());
+        confirmButton.setOnClickListener(v -> confirmSelectedPizza());
     }
 
     private void updatePizzaPrices() {
@@ -101,6 +112,14 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onPizzaSelected(SpecialityPizzaModel selectedPizzaModel) {
+        // Handle the selected pizza model here
+        this.selectedPizzaModel = selectedPizzaModel;
+        // Maybe show details of the selected pizza or add it to an order
+    }
+
     private void populatePizzaList() {
         String[] pizzaNames = getResources().getStringArray(R.array.all_speciality_pizza);
         for (String pizzaName : pizzaNames) {
@@ -126,6 +145,39 @@ public class SpecialityPizzaActivity extends AppCompatActivity {
         }
         return toppingsBuilder.toString();
     }
+
+    private void confirmSelectedPizza() {
+        if (selectedPizzaModel != null) {
+            // Add the selected pizza to the order
+            // Assuming you have an Order class to manage the order
+            String selectedSizeStr = sizeSelector.getSelectedItem().toString();
+            Size size;
+            try {
+                size = Size.valueOf(selectedSizeStr.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(this, "Invalid pizza size selected.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String pizzaName = selectedPizzaModel.getPizzaName();
+            Pizza pizza = PizzaMaker.createPizza(pizzaName);
+            pizza.setSize(size);
+            pizza.setExtraCheese(extraCheese.isChecked());
+            pizza.setExtraSauce(extraSauce.isChecked());
+            OrderBreaker.getOrder().addPizza(pizza);
+            Toast.makeText(this, selectedPizzaModel.getPizzaName() + " added to order!", Toast.LENGTH_SHORT).show();
+            resetSelections();
+        } else {
+            Toast.makeText(this, "Please select a pizza to add to your order.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void resetSelections() {
+        selectedPizzaModel = null;
+        extraCheese.setChecked(false);
+        extraSauce.setChecked(false);
+        sizeSelector.setSelection(1); // Assuming 0 is the default position
+    }
+
 
     private int getImageResIdByName(String pizzaName) {
         // This is a stub, you'll need to implement this according to your drawable resources
