@@ -62,6 +62,7 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
 
         adapter = new SP_RecyclerViewAdapter(this,pizzaModelList,this);
         recyclerViewSpecialtyPizzas.setAdapter(adapter);
+        setupListeners();
 
         setupListeners();
 
