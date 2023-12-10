@@ -42,4 +42,8 @@ public class pizzaordermodel {
     public String getPrice() {
         return String.format(Locale.getDefault(), "$%.2f", price);
     }
+
+    public void setPizzaname(String pizzaname) {
+        this.pizzaname = pizzaname;
+    }
 }

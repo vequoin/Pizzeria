@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FF9800">
+    android:background="#FF9800"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/pizza_name"
@@ -34,18 +35,12 @@
         android:id="@+id/extra_sauce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:text="@string/extra_sauce"
         app:layout_constraintStart_toEndOf="@+id/extra_cheese"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/remove"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Toppings"
+        app:layout_constraintBaseline_toBaselineOf="@+id/extra_cheese" />
 
     <TextView
         android:id="@+id/price"
