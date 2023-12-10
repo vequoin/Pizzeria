@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Pizzeria"
         tools:targetApi="31">
         <activity
+            android:name=".PizzaOrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Pizzeria">
@@ -23,9 +26,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SpecialityPizzaActivity">
+
             <!-- If you have intent-filters, they go here -->
         </activity>
         <activity android:name=".BuildYourOwnActivity">
+
             <!-- If you have intent-filters, they go here -->
         </activity>
     </application>

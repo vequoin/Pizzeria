@@ -29,6 +29,11 @@
     <string name="price_in_dollars">Price: $</string>
     <string name="pizza_size_image">pizza size image</string>
     <string name="sauce_recycle">Sauce:</string>
+    <!--Pizza order Strings-->
+    <string name="pizza_order_title">Pizza Checkout</string>
+    <string name="total_cost">Total:</string>
+    <string name="place_order">Place Order</string>
+    <string name="cancel_order">Cancel</string>
 
     <string-array name="all_speciality_pizza">
         <item>Deluxe</item>
