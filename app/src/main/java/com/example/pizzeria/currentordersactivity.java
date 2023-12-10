@@ -33,26 +33,19 @@ public class currentordersactivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int selectedIndex = currentorderadapter.getselectednum();
+                for (int i = 0; i < pizzaordermodelList.size(); i++) {
+                    pizzaordermodel p = pizzaordermodelList.get(i);
+                    if (Integer.parseInt(p.getPizzaname().substring(p.getPizzaname().length() - 1)) == selectedIndex) {
+                        pizzaordermodelList.remove(i);
+                        OrderBreaker.getOrder().getPizzas().remove(i);
+                        COadapter.notifyItemRemoved(i);
 
-                if (selectedIndex >= 0 && selectedIndex < pizzaordermodelList.size()) {
-                    pizzaordermodelList.remove(selectedIndex);
-                    COadapter.notifyItemRemoved(selectedIndex);
-
-                    total = 0;
-                    for (Pizza pizza : OrderBreaker.getOrder().getPizzas()) {
-                        total += pizza.price();
+                        total = 0;
+                        for (int j = 0; j < OrderBreaker.getOrder().getPizzas().size(); j++) {
+                            total += OrderBreaker.getOrder().getPizzas().get(j).price();
+                        }
+                        price.setText(String.format("%s: %.2f", "Total", total));
                     }
-                    price.setText(String.format("%s: %.2f", "Total", total));
-
-                    // Update the remaining items' pizza names
-                    int i = 0;
-                    for (pizzaordermodel pizzaordermodel : pizzaordermodelList) {
-                        pizzaordermodel.setPizzaname(String.valueOf(i));
-                        i++;
-                    }
-                } else {
-                    // Handle the case where the selected index is invalid
-                    Toast.makeText(currentordersactivity.this, "Invalid selection", Toast.LENGTH_SHORT).show();
                 }
             }
         });
