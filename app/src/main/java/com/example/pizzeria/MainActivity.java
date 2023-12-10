@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void OpenPizzaOrder() {
         // Placeholder for SpecialityPizzaActivity
-        Intent intent = new Intent(MainActivity.this, PizzaOrdersActivity.class);
+        Intent intent = new Intent(MainActivity.this, currentordersactivity.class);
         startActivity(intent);
     }
 

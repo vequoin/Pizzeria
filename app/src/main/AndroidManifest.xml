@@ -13,8 +13,14 @@
         android:theme="@style/Theme.Pizzeria"
         tools:targetApi="31">
         <activity
-            android:name=".PizzaOrdersActivity"
+            android:name=".currentordersactivity"
             android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".currentordermodel" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".PizzaOrdersActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

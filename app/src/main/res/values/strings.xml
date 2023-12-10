@@ -29,12 +29,12 @@
     <string name="price_in_dollars">Price: $</string>
     <string name="pizza_size_image">pizza size image</string>
     <string name="sauce_recycle">Sauce:</string>
-    <!--Pizza order Strings-->
-    <string name="pizza_order_title">Pizza Checkout</string>
-    <string name="total_cost">Total:</string>
-    <string name="place_order">Place Order</string>
-    <string name="cancel_order">Cancel</string>
-
+    <!--current order strings-->
+    <string name="current_order_title">Current Order</string>
+    <!--current order recycler item-->
+<!--    pizza_name exists-->
+    <string name="size">size:</string>
+    <!--Specialty pizza variables-->
     <string-array name="all_speciality_pizza">
         <item>Deluxe</item>
         <item>Meatzza</item>

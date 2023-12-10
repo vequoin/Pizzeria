@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FF9800">
+
+    <TextView
+        android:id="@+id/pizza_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pizza_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Toppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toppings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizza_name" />
+
+    <TextView
+        android:id="@+id/extra_cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extra_cheese"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Toppings" />
+
+    <TextView
+        android:id="@+id/extra_sauce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/extra_sauce"
+        app:layout_constraintStart_toEndOf="@+id/extra_cheese"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/remove_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_in_dollars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizza_size" />
+
+    <TextView
+        android:id="@+id/pizza_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extra_cheese" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

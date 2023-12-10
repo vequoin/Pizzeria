@@ -27,17 +27,17 @@
             android:src="@drawable/baseline_local_pizza_24" />
 
         <TextView
-            android:fontFamily="@font/ubuntu_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pizza_order_title"
             android:layout_centerVertical="true"
-            android:textColor="@color/textColor"
-            android:textStyle="bold"
-            android:letterSpacing=".1"
             android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/logobtn_all_bo"
+            android:fontFamily="@font/ubuntu_bold"
+            android:letterSpacing=".1"
+            android:text="@string/current_order_title"
+            android:textColor="@color/textColor"
             android:textSize="20sp"
-            android:layout_toEndOf="@+id/logobtn_all_bo"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/menu_icon_all_bo"
