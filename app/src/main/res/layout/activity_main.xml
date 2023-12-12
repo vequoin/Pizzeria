@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/image_custom_pizza"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/accentColor"
+                android:backgroundTint="@color/secondaryColor"
                 android:text="@string/build_your_own"
                 android:textSize="11sp"/>
 
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/image_current_orders"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/primaryColor"
+                android:backgroundTint="@color/secondaryColor"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/current_orders"
                 android:textSize="12sp"/>

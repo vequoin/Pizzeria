@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pizzeria.model.OrderBreaker;
@@ -256,14 +257,35 @@ public class BuildYourOwnActivity extends AppCompatActivity {
             Toast.makeText(this, "Please select at least 3 toppings.", Toast.LENGTH_SHORT).show();
             return;
         }
-        // Add the pizza to the order and display a confirmation message
+
+        // Show confirmation dialog
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm Pizza")
+                .setMessage("Are you sure you want to add this pizza to your order?")
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                    // User confirmed
+                    addPizzaToOrder();
+                })
+                .setNegativeButton(android.R.string.no, null) // No action on clicking 'No'
+                .show();
+    }
+
+    private void addPizzaToOrder() {
+        // Add the pizza to the order
+        Size selectedSize = (Size) sizeSelector.getSelectedItem();
+        Sauce selectedSauce = getSauceForPizza();
         currentPizza.setSize(selectedSize);
-        currentPizza.setSauce(getSauceForPizza());
+        currentPizza.setSauce(selectedSauce);
+        currentPizza.setExtraCheese(extraCheese.isChecked());
+        currentPizza.setExtraSauce(extraSauce.isChecked());
+        currentPizza.getToppings().clear();
+        currentPizza.getToppings().addAll(selectedToppings);
         OrderBreaker.getOrder().addPizza(currentPizza);
+
         Toast.makeText(this, "Pizza added to order!", Toast.LENGTH_SHORT).show();
-        // Reset the current pizza and selections for a new order
         //resetSelections();
     }
+
 
     private void resetSelections() {
         currentPizza = PizzaMaker.createPizza("BuildYourOwn");

@@ -59,5 +59,18 @@
         app:layout_constraintTop_toBottomOf="@id/store_ord02"
         app:layout_constraintBottom_toTopOf="@id/store_ord03"/>
 
+    <Button
+        android:id="@+id/confirm_btn_store"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:layout_margin="40dp"
+        android:text="@string/confirm_order"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/store_ord04"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/store_ord02"
+        app:layout_constraintBottom_toTopOf="@id/store_ord03"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

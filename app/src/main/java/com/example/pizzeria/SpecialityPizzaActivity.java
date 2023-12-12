@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -153,30 +154,44 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
         return toppingsBuilder.toString();
     }
 
+
     private void confirmSelectedPizza() {
         if (selectedPizzaModel != null) {
-            // Add the selected pizza to the order
-            // Assuming you have an Order class to manage the order
-            String selectedSizeStr = sizeSelector.getSelectedItem().toString();
-            Size size;
-            try {
-                size = Size.valueOf(selectedSizeStr.toUpperCase());
-            } catch (IllegalArgumentException e) {
-                Toast.makeText(this, "Invalid pizza size selected.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            String pizzaName = selectedPizzaModel.getPizzaName();
-            Pizza pizza = PizzaMaker.createPizza(pizzaName);
-            pizza.setSize(size);
-            pizza.setExtraCheese(extraCheese.isChecked());
-            pizza.setExtraSauce(extraSauce.isChecked());
-            OrderBreaker.getOrder().addPizza(pizza);
-            Toast.makeText(this, selectedPizzaModel.getPizzaName() + " added to order!", Toast.LENGTH_SHORT).show();
-            resetSelections();
+            // Show an AlertDialog for confirmation
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm Pizza Selection")
+                    .setMessage("Are you sure you want to add " + selectedPizzaModel.getPizzaName() + " to your order?")
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                        // User confirmed
+                        addPizzaToOrder();
+                    })
+                    .setNegativeButton(android.R.string.no, null) // No action on clicking 'No'
+                    .show();
         } else {
             Toast.makeText(this, "Please select a pizza to add to your order.", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void addPizzaToOrder() {
+        // Add the selected pizza to the order
+        String selectedSizeStr = sizeSelector.getSelectedItem().toString();
+        Size size;
+        try {
+            size = Size.valueOf(selectedSizeStr.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(this, "Invalid pizza size selected.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String pizzaName = selectedPizzaModel.getPizzaName();
+        Pizza pizza = PizzaMaker.createPizza(pizzaName);
+        pizza.setSize(size);
+        pizza.setExtraCheese(extraCheese.isChecked());
+        pizza.setExtraSauce(extraSauce.isChecked());
+        OrderBreaker.getOrder().addPizza(pizza);
+        Toast.makeText(this, selectedPizzaModel.getPizzaName() + " added to order!", Toast.LENGTH_SHORT).show();
+        resetSelections();
+    }
+
 
     private void resetSelections() {
         selectedPizzaModel = null;
