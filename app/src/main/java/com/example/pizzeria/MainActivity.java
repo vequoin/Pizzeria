@@ -57,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+
         imageSpecialityPizza.setOnClickListener(specialityPizzaListener);
         buttonSpecialityPizza.setOnClickListener(specialityPizzaListener);
 
         imageCustomPizza.setOnClickListener(customPizzaListener);
         buttonCustomPizza.setOnClickListener(customPizzaListener);
         imageCurrentOrders.setOnClickListener(CurrentOrderListener);
-
-        // Repeat the pattern for the other sections
-        // ...
+        buttonCurrentOrders.setOnClickListener(CurrentOrderListener);
 
     }
+
 
     private void openBuildyourOwnActivity() {
         Intent intent = new Intent(MainActivity.this, BuildYourOwnActivity.class);
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void OpenPizzaOrder() {
-        // Placeholder for SpecialityPizzaActivity
         Intent intent = new Intent(MainActivity.this, currentordersactivity.class);
         startActivity(intent);
     }
