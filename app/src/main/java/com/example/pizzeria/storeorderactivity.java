@@ -3,6 +3,8 @@ package com.example.pizzeria;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,10 +24,6 @@ public class storeorderactivity extends AppCompatActivity {
         setContentView(R.layout.activity_storeorderactivity);
         ListView listView = findViewById(R.id.store_order_list);
         storeOrder = OrderBreaker.getStoreOrder();
-        if(storeOrder.getOrders().isEmpty()){
-            Toast.makeText(this,"You have no orders",Toast.LENGTH_LONG).show();
-            finish();
-        }
         List<pizzaordermodel> list = new ArrayList<>();
         for(int i = 0; i < storeOrder.getOrders().get(0).getPizzas().size(); i++){
             Pizza pizza = storeOrder.getOrders().get(0).getPizzas().get(i);
@@ -34,6 +32,22 @@ public class storeorderactivity extends AppCompatActivity {
         }
         currentorderadapter = new storeorderadapter(list,this);
         listView.setAdapter(currentorderadapter);
-        //currentorderadapter = new currentorderadapter(,this);
+        Button removebutton = findViewById(R.id.store_order_cancela);
+        removebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(storeorderadapter.getDecision() < 0){
+                    Toast.makeText(getBaseContext(),"Select item to delete",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                for(int i = 0; i < list.size(); i++){
+                    if(OrderBreaker.getStoreOrder().getOrders().get(i).getOrderId() == storeorderadapter.getDecision()){
+                        currentorderadapter.remove(i);
+                        storeorderadapter.setDecision(-1);
+                        break;
+                    }
+                }
+            }
+        });
     }
 }

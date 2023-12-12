@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pizzeria.model.OrderBreaker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+
         imageSpecialityPizza.setOnClickListener(specialityPizzaListener);
         buttonSpecialityPizza.setOnClickListener(specialityPizzaListener);
 
@@ -74,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         imageStoreOrders.setOnClickListener(StoreOrderListener);
         // Repeat the pattern for the other sections
         // ...
-
     }
+
 
     private void openBuildyourOwnActivity() {
         Intent intent = new Intent(MainActivity.this, BuildYourOwnActivity.class);
@@ -89,12 +94,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void OpenPizzaOrder() {
-        // Placeholder for SpecialityPizzaActivity
         Intent intent = new Intent(MainActivity.this, currentordersactivity.class);
         startActivity(intent);
     }
     private void OpenStoreOrder() {
         // Placeholder for SpecialityPizzaActivity
+        if(OrderBreaker.getStoreOrder().getOrders().isEmpty()){
+            Toast.makeText(this,"You have no orders",Toast.LENGTH_LONG).show();
+            return;
+        }
         Intent intent = new Intent(MainActivity.this, storeorderactivity.class);
         startActivity(intent);
     }

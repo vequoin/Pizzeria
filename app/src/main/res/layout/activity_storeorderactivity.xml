@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/include2" />
 
     <Button
-        android:id="@+id/store_order_cancel"
+        android:id="@+id/store_order_cancela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@android:string/cancel"

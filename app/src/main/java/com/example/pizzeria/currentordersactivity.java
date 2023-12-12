@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class currentordersactivity extends AppCompatActivity {
     private static int index;
     private double total = 0;
     private RecyclerView recyclerView;
+    private ImageView backbtn;
     private currentorderadapter COadapter;
     private List<pizzaordermodel> pizzaordermodelList;
     @Override
@@ -29,6 +32,9 @@ public class currentordersactivity extends AppCompatActivity {
         setContentView(R.layout.activity_pizza_orders);
         TextView price = findViewById(R.id.pizza_total);
         recyclerView = findViewById(R.id.recyclerView);
+        backbtn = findViewById(R.id.backbtn_co);
+        setupListeners();
+
         Button cancel_order = findViewById(R.id.cancel_order);
         cancel_order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +79,21 @@ public class currentordersactivity extends AppCompatActivity {
                     order.addPizza(OrderBreaker.getOrder().getPizzas().get(i));
                 }
                 OrderBreaker.getStoreOrder().addOrder(order);
+                OrderBreaker.createNewOrder();
             }
         });
+    }
+
+    private void setupListeners() {
+        backbtn.setOnClickListener(v -> onBackPressed());
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // This will take the user back to the MainActivity from the current Activity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Optional: If you wish to close the current activity
     }
 }

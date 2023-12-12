@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/store_ord01"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".14"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/store_ord02"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".54"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/store_ord03"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".74"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/store_ord04"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5"/>
+
+    <include layout="@layout/header_all"/>
+
+    <ListView
+        android:id="@+id/listViewStore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_ord01"
+        app:layout_constraintBottom_toTopOf="@id/store_ord02"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <Button
+        android:id="@+id/remove_btn_store"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:layout_margin="40dp"
+        android:text="@string/remove"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/store_ord04"
+        app:layout_constraintTop_toBottomOf="@id/store_ord02"
+        app:layout_constraintBottom_toTopOf="@id/store_ord03"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

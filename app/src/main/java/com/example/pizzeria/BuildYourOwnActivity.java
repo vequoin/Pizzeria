@@ -1,5 +1,6 @@
 package com.example.pizzeria;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -38,6 +39,8 @@ public class BuildYourOwnActivity extends AppCompatActivity {
     private CheckBox extraCheese;
     private CheckBox extraSauce;
     private TextView priceLabel;
+
+    private ImageView backbtn;
     private TextView priceTextView;
     private Button confirmButton;
 
@@ -82,6 +85,7 @@ public class BuildYourOwnActivity extends AppCompatActivity {
 
     private void initializeViews() {
         // Initialize your views here
+        backbtn = findViewById(R.id.backbtn_bo);
         sizeSelector = findViewById(R.id.size_select_bo);
         alfredoSauce = findViewById(R.id.radio_btn_alfredo);
         tomatoSauce = findViewById(R.id.radio_btn_tomato);
@@ -113,6 +117,8 @@ public class BuildYourOwnActivity extends AppCompatActivity {
             }
         });
         // Set up listeners for your buttons and other interactive views
+
+        backbtn.setOnClickListener(v -> onBackPressed());
         extraCheese.setOnCheckedChangeListener((buttonView, isChecked) -> updatePrice());
         extraSauce.setOnCheckedChangeListener((buttonView, isChecked) -> updatePrice());
 
@@ -164,6 +170,15 @@ public class BuildYourOwnActivity extends AppCompatActivity {
         for (int i = 0; i < selectedToppingsAdapter.getCount(); i++) {
             selectedToppingsListView.setItemChecked(i, false);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // This will take the user back to the MainActivity from the current Activity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Optional: If you wish to close the current activity
     }
 
 

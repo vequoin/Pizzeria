@@ -88,7 +88,9 @@ public class currentorderadapter extends RecyclerView.Adapter<currentorderadapte
 
 // Convert the isolated number to an integer
                     try {
+
                         selectednum = Integer.parseInt(isolatedNumber);
+                        Toast.makeText(context,selectednum + " Selected.",Toast.LENGTH_SHORT).show();
                         // Now 'selectedNum' contains the integer value of the isolated number
                     } catch (NumberFormatException e) {
                         // Handle the case where the parsing fails (e.g., if the isolatedNumber is not a valid integer)

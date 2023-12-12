@@ -1,11 +1,13 @@
 package com.example.pizzeria;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,6 +32,8 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
     private SP_RecyclerViewAdapter adapter;
     ArrayList<Pizza> allSpecialityPizzas = new ArrayList<Pizza>();
 
+    private ImageView backButton;
+
     private Spinner sizeSelector;
     private CheckBox extraCheese;
     private CheckBox extraSauce;
@@ -46,6 +50,7 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
         confirmButton = findViewById(R.id.confirm_button_sp);
         extraCheese = findViewById(R.id.extra_cheese_checkbox);
         extraSauce = findViewById(R.id.extra_sauce_checkbox);
+        backButton = findViewById(R.id.backbtn);
 
         sizeSelector = findViewById(R.id.spinnerPizzaSizes);
         getSizes = getEnumNames();
@@ -94,6 +99,7 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
             }
         });
 
+        backButton.setOnClickListener(v -> onBackPressed());
         extraCheese.setOnCheckedChangeListener((buttonView, isChecked) -> updatePizzaPrices());
         extraSauce.setOnCheckedChangeListener((buttonView, isChecked) -> updatePizzaPrices());
         confirmButton.setOnClickListener(v -> confirmSelectedPizza());
@@ -178,6 +184,17 @@ public class SpecialityPizzaActivity extends AppCompatActivity implements SP_Rec
         extraSauce.setChecked(false);
         sizeSelector.setSelection(1); // Assuming 0 is the default position
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // This will take the user back to the MainActivity from the current Activity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Optional: If you wish to close the current activity
+    }
+
 
 
     private int getImageResIdByName(String pizzaName) {

@@ -10,7 +10,7 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/backbtn_bo"
+            android:id="@+id/backbtn_co"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:clickable="true"
@@ -18,7 +18,7 @@
             android:src="@drawable/baseline_arrow_back_24"/>
 
         <ImageView
-            android:layout_toEndOf="@+id/backbtn_bo"
+            android:layout_toEndOf="@+id/backbtn_co"
             android:id="@+id/logobtn_all_bo"
             android:layout_width="50dp"
             android:layout_height="35dp"
