@@ -32,8 +32,10 @@
     <!--current order strings-->
     <string name="current_order_title">Current Order</string>
     <!--current order recycler item-->
-<!--    pizza_name exists-->
+    <!--    pizza_name exists-->
     <string name="size">size:</string>
+    <!--store order items-->
+    <string name="store_order_title">Store Order</string>
     <!--Specialty pizza variables-->
     <string-array name="all_speciality_pizza">
         <item>Deluxe</item>

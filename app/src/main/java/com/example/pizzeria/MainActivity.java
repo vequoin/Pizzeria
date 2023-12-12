@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 OpenPizzaOrder();
             }
         };
+        View.OnClickListener StoreOrderListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenStoreOrder();
+            }
+        };
 
         imageSpecialityPizza.setOnClickListener(specialityPizzaListener);
         buttonSpecialityPizza.setOnClickListener(specialityPizzaListener);
@@ -63,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         imageCustomPizza.setOnClickListener(customPizzaListener);
         buttonCustomPizza.setOnClickListener(customPizzaListener);
         imageCurrentOrders.setOnClickListener(CurrentOrderListener);
-
+        buttonCurrentOrders.setOnClickListener(CurrentOrderListener);
+        buttonStoreOrders.setOnClickListener(StoreOrderListener);
+        imageStoreOrders.setOnClickListener(StoreOrderListener);
         // Repeat the pattern for the other sections
         // ...
 
@@ -83,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
     private void OpenPizzaOrder() {
         // Placeholder for SpecialityPizzaActivity
         Intent intent = new Intent(MainActivity.this, currentordersactivity.class);
+        startActivity(intent);
+    }
+    private void OpenStoreOrder() {
+        // Placeholder for SpecialityPizzaActivity
+        Intent intent = new Intent(MainActivity.this, storeorderactivity.class);
         startActivity(intent);
     }
 

@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pizzeria.model.Pizza;
+
 import java.util.List;
 
 public class currentorderadapter extends RecyclerView.Adapter<currentorderadapter.ViewHolder> {
@@ -24,7 +26,6 @@ public class currentorderadapter extends RecyclerView.Adapter<currentorderadapte
         this.pizzalist = pizzalist;
         this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

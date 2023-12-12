@@ -25,22 +25,24 @@ public class StoreOrder {
     }
 
 
-    public void exportToTextFile(String filename) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            for (Order order : orders) {
-                writer.write("Order Number: " + order.getOrderId() + "\n");
-                writer.write("Order Details: \n");
-                for (Pizza pizza : order.getPizzas()) {
-                    writer.write(pizza.toString() + "\n");
-                }
-                writer.write("Total Amount: " + order.getTotalAmount() + "\n");
-                writer.write("Sales Tax: " + order.calculateTax() + "\n");
-                writer.write("Order Total: " + order.getOrderTotal() + "\n\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public String contoString(int pos) {
+        Order order = orders.get(pos);
+
+        StringBuilder toreturn = new StringBuilder();
+        toreturn.append("Order Number: ").append(order.getOrderId()).append("\n")
+                .append("Order Details: \n");
+
+        for (Pizza pizza : order.getPizzas()) {
+            toreturn.append(pizza.toString()).append("\n");
         }
+
+        toreturn.append("Total Amount: ").append(order.getTotalAmount()).append("\n")
+                .append("Sales Tax: ").append(order.calculateTax()).append("\n")
+                .append("Order Total: ").append(order.getOrderTotal()).append("\n\n");
+
+        return toreturn.toString();
     }
+
 
     // Method to generate the next order number
     public static int getNextOrderNumber() {

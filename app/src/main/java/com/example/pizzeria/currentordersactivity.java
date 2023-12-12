@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pizzeria.model.Order;
 import com.example.pizzeria.model.OrderBreaker;
 import com.example.pizzeria.model.Pizza;
 
@@ -63,5 +64,16 @@ public class currentordersactivity extends AppCompatActivity {
         price.setText(String.format("%s: %.2f", "Total", total));
         COadapter = new currentorderadapter(this.pizzaordermodelList,this);
         recyclerView.setAdapter(COadapter);
+        Button confirmorder = findViewById(R.id.place_order);
+        confirmorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Order order = new Order();
+                for(int i = 0; i < OrderBreaker.getOrder().getPizzas().size(); i++){
+                    order.addPizza(OrderBreaker.getOrder().getPizzas().get(i));
+                }
+                OrderBreaker.getStoreOrder().addOrder(order);
+            }
+        });
     }
 }

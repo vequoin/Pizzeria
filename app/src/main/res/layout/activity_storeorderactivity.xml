@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".storeorderactivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/header_storeorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/store_order_list"
+        android:layout_width="410dp"
+        android:layout_height="556dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+    <Button
+        android:id="@+id/store_order_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@android:string/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_order_list" />
+</androidx.constraintlayout.widget.ConstraintLayout>
