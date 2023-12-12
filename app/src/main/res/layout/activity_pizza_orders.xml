@@ -29,37 +29,44 @@
         app:layout_constraintTop_toBottomOf="@id/co_gl_01"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/co_gl_02"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
+        android:elevation="8dp"
+        android:shadowColor="@color/accentColor"
         android:backgroundTint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@id/place_order"
+        app:layout_constraintBottom_toTopOf="@id/co_gl_06"
+        app:layout_constraintStart_toStartOf="@id/co_gl_07"
         android:id="@+id/cancel_order"
         android:fontFamily="@font/montserrat_bold"
-        android:layout_width="113dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
         android:text="@string/remove"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:layout_marginEnd="10dp"
-        android:layout_margin="5dp"
+        android:layout_margin="8dp"
+        android:elevation="8dp"
+        android:shadowColor="@color/accentColor"
+        app:layout_constraintStart_toStartOf="@id/co_gl_07"
         android:backgroundTint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@id/co_gl_02"
+        app:layout_constraintBottom_toTopOf="@id/co_gl_05"
         android:id="@+id/place_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/confirm_order"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        app:layout_constraintBottom_toTopOf="@id/co_gl_05"
         android:fontFamily="@font/ubuntu_bold"
         android:layout_margin="5dp"
         android:id="@+id/pizza_total"
@@ -69,6 +76,27 @@
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/co_gl_02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/co_gl_05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".8"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/co_gl_06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".9"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/co_gl_07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".6"
+        android:orientation="vertical"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
